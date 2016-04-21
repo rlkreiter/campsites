@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		809578881CC866E800290E20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809578871CC866E800290E20 /* AppDelegate.swift */; };
-		8095788A1CC866E800290E20 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 809578891CC866E800290E20 /* GameScene.sks */; };
 		8095788C1CC866E800290E20 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095788B1CC866E800290E20 /* GameScene.swift */; };
 		8095788E1CC866E800290E20 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095788D1CC866E800290E20 /* GameViewController.swift */; };
 		809578911CC866E800290E20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8095788F1CC866E800290E20 /* Main.storyboard */; };
 		809578931CC866E800290E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809578921CC866E800290E20 /* Assets.xcassets */; };
 		809578961CC866E800290E20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809578941CC866E800290E20 /* LaunchScreen.storyboard */; };
+		8095789E1CC8744A00290E20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095789D1CC8744A00290E20 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		809578841CC866E800290E20 /* Campsites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Campsites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809578871CC866E800290E20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		809578891CC866E800290E20 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		8095788B1CC866E800290E20 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8095788D1CC866E800290E20 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		809578901CC866E800290E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		809578921CC866E800290E20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		809578951CC866E800290E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		809578971CC866E800290E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8095789D1CC8744A00290E20 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				809578871CC866E800290E20 /* AppDelegate.swift */,
-				809578891CC866E800290E20 /* GameScene.sks */,
 				8095788B1CC866E800290E20 /* GameScene.swift */,
 				8095788D1CC866E800290E20 /* GameViewController.swift */,
+				8095789D1CC8744A00290E20 /* ViewController.swift */,
 				8095788F1CC866E800290E20 /* Main.storyboard */,
 				809578921CC866E800290E20 /* Assets.xcassets */,
 				809578941CC866E800290E20 /* LaunchScreen.storyboard */,
@@ -129,7 +129,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8095788A1CC866E800290E20 /* GameScene.sks in Resources */,
 				809578961CC866E800290E20 /* LaunchScreen.storyboard in Resources */,
 				809578931CC866E800290E20 /* Assets.xcassets in Resources */,
 				809578911CC866E800290E20 /* Main.storyboard in Resources */,
@@ -145,6 +144,7 @@
 			files = (
 				8095788C1CC866E800290E20 /* GameScene.swift in Sources */,
 				8095788E1CC866E800290E20 /* GameViewController.swift in Sources */,
+				8095789E1CC8744A00290E20 /* ViewController.swift in Sources */,
 				809578881CC866E800290E20 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

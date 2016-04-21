@@ -11,25 +11,34 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    // The scene draws the tiles and cookie sprites, and handles swipes.
+    var scene: GameScene!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let scene = GameScene(fileNamed:"GameScene") {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+        let button = UIBarButtonItem(title: "Restart", style: .Plain, target: self, action: #selector(GameViewController.restart))
+        self.navigationItem.rightBarButtonItem = button
+        self.navigationItem.title = "Campsites"
+        
+        // Configure the view.
+        let skView = self.view as! SKView
+        scene = GameScene(size: skView.bounds.size)
+        scene.viewController = self
+        scene.drawBoard(11)
             
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene)
-        }
+        /* Sprite Kit applies additional optimizations to improve rendering performance */
+        skView.ignoresSiblingOrder = true
+        
+        /* Set the scale mode to scale to fit the window */
+        scene.scaleMode = .AspectFill
+        
+        skView.presentScene(scene)
     }
 
+    func restart() {
+        print("Restarting")
+    }
+    
     override func shouldAutorotate() -> Bool {
         return true
     }
