@@ -14,6 +14,10 @@
 		809578931CC866E800290E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809578921CC866E800290E20 /* Assets.xcassets */; };
 		809578961CC866E800290E20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809578941CC866E800290E20 /* LaunchScreen.storyboard */; };
 		8095789E1CC8744A00290E20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095789D1CC8744A00290E20 /* ViewController.swift */; };
+		809578A01CC9AA5500290E20 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095789F1CC9AA5500290E20 /* Level.swift */; };
+		809578A21CC9AD8C00290E20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809578A11CC9AD8C00290E20 /* Extensions.swift */; };
+		809578A61CC9B11800290E20 /* Challenging.json in Resources */ = {isa = PBXBuildFile; fileRef = 809578A41CC9B11800290E20 /* Challenging.json */; };
+		809578A71CC9B11800290E20 /* Easy.json in Resources */ = {isa = PBXBuildFile; fileRef = 809578A51CC9B11800290E20 /* Easy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		809578951CC866E800290E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		809578971CC866E800290E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8095789D1CC8744A00290E20 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8095789F1CC9AA5500290E20 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		809578A11CC9AD8C00290E20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		809578A41CC9B11800290E20 /* Challenging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Challenging.json; sourceTree = "<group>"; };
+		809578A51CC9B11800290E20 /* Easy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Easy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +67,27 @@
 			isa = PBXGroup;
 			children = (
 				809578871CC866E800290E20 /* AppDelegate.swift */,
+				809578A11CC9AD8C00290E20 /* Extensions.swift */,
 				8095788B1CC866E800290E20 /* GameScene.swift */,
 				8095788D1CC866E800290E20 /* GameViewController.swift */,
+				8095789F1CC9AA5500290E20 /* Level.swift */,
 				8095789D1CC8744A00290E20 /* ViewController.swift */,
 				8095788F1CC866E800290E20 /* Main.storyboard */,
 				809578921CC866E800290E20 /* Assets.xcassets */,
 				809578941CC866E800290E20 /* LaunchScreen.storyboard */,
+				809578A31CC9B11800290E20 /* Levels */,
 				809578971CC866E800290E20 /* Info.plist */,
 			);
 			path = Campsites;
+			sourceTree = "<group>";
+		};
+		809578A31CC9B11800290E20 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				809578A41CC9B11800290E20 /* Challenging.json */,
+				809578A51CC9B11800290E20 /* Easy.json */,
+			);
+			path = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,7 +149,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809578A61CC9B11800290E20 /* Challenging.json in Resources */,
 				809578961CC866E800290E20 /* LaunchScreen.storyboard in Resources */,
+				809578A71CC9B11800290E20 /* Easy.json in Resources */,
 				809578931CC866E800290E20 /* Assets.xcassets in Resources */,
 				809578911CC866E800290E20 /* Main.storyboard in Resources */,
 			);
@@ -143,8 +165,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8095788C1CC866E800290E20 /* GameScene.swift in Sources */,
+				809578A21CC9AD8C00290E20 /* Extensions.swift in Sources */,
 				8095788E1CC866E800290E20 /* GameViewController.swift in Sources */,
 				8095789E1CC8744A00290E20 /* ViewController.swift in Sources */,
+				809578A01CC9AA5500290E20 /* Level.swift in Sources */,
 				809578881CC866E800290E20 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +321,7 @@
 				8095789C1CC866E800290E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -11,7 +11,9 @@ import SpriteKit
 class GameScene: SKScene {
     
     var viewController: GameViewController!
-    var nodeName: String = ""
+    var touchedTile: SKSpriteNode?
+    var gridSize: Int!
+    var tileSize: CGSize!
 
     let gameLayer = SKNode()
     let tileLayer = SKNode()
@@ -35,45 +37,44 @@ class GameScene: SKScene {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
         for touch in touches{
-            nodeName = self.nodeAtPoint(touch.locationInNode(self)).name!
+            if (tileLayer.nodeAtPoint(touch.locationInNode(tileLayer)).name) != nil {
+                touchedTile = tileLayer.nodeAtPoint(touch.locationInNode(tileLayer)) as? SKSpriteNode
+            }
         }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in touches {
-            if touch.tapCount == 1 {
-                print("Touched \(nodeName)")
-            } else if touch.tapCount == 2 {
-                print("Double touched \(nodeName)")
+            if (tileLayer.nodeAtPoint(touch.locationInNode(tileLayer)) == touchedTile) {
+                viewController.handleTouch((touchedTile?.name)!)
             }
         }
-        nodeName = ""
+        touchedTile = nil
     }
     
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        nodeName = ""
+        touchedTile = nil
     }
     
-    func drawBoard(gridSize: Int) {
+    func drawBoard(grid: [[Int]], treeColor: SKColor, fontSize: CGFloat) {
         // Board parameters
         let screenSize = self.frame.size
         let size = (screenSize.width-40)/CGFloat(gridSize)
         let squareSize = CGSizeMake(size, size)
+        self.tileSize = CGSizeMake(size-1, size-1)
         let xOffset:CGFloat = size/2 + 20
-        let yOffset:CGFloat = self.frame.size.height - (viewController.navigationController?.navigationBar.frame.size.height)! - (CGFloat(gridSize)*squareSize.height)
-
+        let yOffset:CGFloat = screenSize.height - (viewController.navigationController?.navigationBar.frame.size.height)! - (CGFloat(gridSize)*size)
+        
         for row in 0...gridSize-1 {
             for col in 0...gridSize-1 {
-                // Determine the color of square
+                // Background squares
                 var color = SKColor.blackColor()
-                let square = SKSpriteNode(color: color, size: squareSize)
-                square.position = CGPointMake(CGFloat(col) * squareSize.width + xOffset,
-                                              CGFloat(row) * squareSize.height + yOffset)
-                // Set sprite's name (e.g., (1,8), (3,5), (4,1))
-                square.name = "(\(col),\(11-row))"
-                self.gameLayer.addChild(square)
+                let background = SKSpriteNode(color: color, size: squareSize)
+                background.position = CGPointMake(CGFloat(col) * squareSize.width + xOffset,
+                                                  CGFloat(row) * squareSize.height + yOffset)
+                self.gameLayer.addChild(background)
                 
-                //Inner square
+                //Tile
                 if(row == 0 && col == gridSize-1){
                     color = SKColor.blackColor()
                 }
@@ -83,34 +84,73 @@ class GameScene: SKScene {
                 else{
                     color = SKColor.whiteColor()
                 }
-                let inSize = CGSizeMake(squareSize.width-1, squareSize.height-1)
-                let inSquare = SKSpriteNode(color: color, size: inSize)
-                inSquare.position = CGPointMake(CGFloat(col) * squareSize.width + xOffset + 0.5,
-                                                CGFloat(row) * squareSize.height + yOffset - 0.5)
-                inSquare.name = "(\(col+1),\(11-row))"
-                self.tileLayer.addChild(inSquare)
+                let square = SKSpriteNode(color: color, size: self.tileSize)
+                square.position = CGPointMake(CGFloat(col) * squareSize.width + xOffset + 0.5,
+                                              CGFloat(row) * squareSize.height + yOffset - 0.5)
+                square.name = "(\(gridSize-row),\(col+1))"
+                self.tileLayer.addChild(square)
+                
+                let gridRow = gridSize - row - 1
+                if(row == 0 && col == gridSize-1){
+                    continue
+                }
+                else if(row == 0 || col == gridSize-1){
+                    let gamePiece = SKLabelNode(text: "\(grid[gridRow][col])")
+                    gamePiece.fontSize = fontSize
+                    gamePiece.fontColor = SKColor.whiteColor()
+                    gamePiece.fontName = "Helvetica"
+                    gamePiece.horizontalAlignmentMode = .Center
+                    gamePiece.verticalAlignmentMode = .Center
+                    if(grid[gridRow][col] == 0){
+                        square.color = viewController.greenHeader
+                    }
+                    square.addChild(gamePiece)
+                }
+                else if(grid[gridRow][col] == 1){
+                    let gamePiece = SKSpriteNode(imageNamed: "tree")
+                    gamePiece.size = self.tileSize
+                    square.color = treeColor
+                    square.addChild(gamePiece)
+                }
             }
         }
-        
-        // Add a game piece to the board
-        if let square = squareWithName("(2,7)") {
-            let gamePiece = SKSpriteNode(imageNamed: "Spaceship")
-            gamePiece.size = CGSizeMake(24, 24)
-            square.addChild(gamePiece)
-        }
-        if let square = squareWithName("(5,3)") {
-            let gamePiece = SKSpriteNode(imageNamed: "Spaceship")
-            gamePiece.size = CGSizeMake(24, 24)
+    }
+    
+    func addGamePiece(tile: String, spriteName: String, color: SKColor){
+        if let square = squareWithName(tile) {
+            let gamePiece = SKSpriteNode(imageNamed: spriteName)
+            gamePiece.size = self.tileSize
+            gamePiece.name = square.name
+            square.removeAllChildren()
+            square.color = color
             square.addChild(gamePiece)
         }
     }
     
+    func removeGamePiece(tile: String){
+        if let square = squareWithName(tile){
+            square.removeAllChildren()
+            square.color = SKColor.whiteColor()
+        }
+    }
+    
+    func changeTileColor(name: String, color: SKColor){
+        if let square = squareWithName(name) {
+            square.color = color
+        }
+    }
+    
     func squareWithName(name:String) -> SKSpriteNode? {
-        let square:SKSpriteNode? = tileLayer.childNodeWithName(name) as! SKSpriteNode?
-        return square
+        for child in tileLayer.children{
+            if(child.name == name){
+                return child as? SKSpriteNode
+            }
+        }
+        return nil
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        viewController.changeTime()
     }
 }

@@ -35,7 +35,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="wLC-cd-g5v"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="startSegue" id="wLC-cd-g5v"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Grid Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sog-cL-DsV">
@@ -62,6 +62,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cGk-C7-aZs">
                                 <rect key="frame" x="340" y="179" width="300" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cGk-C7-aZs" secondAttribute="height" multiplier="75:32" id="FyL-TT-IrM"/>
+                                </constraints>
                                 <string key="text">Tents must be placed orthogonal to trees
 
 Tents can't be placed orthogonal or diagonal to other tents</string>
@@ -114,7 +117,7 @@ Tents can't be placed orthogonal or diagonal to other tents</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Number of Errors:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIC-9c-DJu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Timer (s):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIC-9c-DJu">
                                 <rect key="frame" x="20" y="550" width="137" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="highlightedColor"/>
@@ -155,6 +158,40 @@ Tents can't be placed orthogonal or diagonal to other tents</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTC-fM-6Bp">
+                                <rect key="frame" x="120" y="222" width="360" height="240"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="You Win!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hl-Ch-yUn">
+                                        <rect key="frame" x="146" y="38" width="68" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hza-Gf-u5N">
+                                        <rect key="frame" x="8" y="102" width="82" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvY-2h-Qhr">
+                                        <rect key="frame" x="158" y="102" width="11" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="FvY-2h-Qhr" firstAttribute="leading" secondItem="hza-Gf-u5N" secondAttribute="trailing" constant="20" id="U7D-jc-hlv"/>
+                                    <constraint firstItem="7Hl-Ch-yUn" firstAttribute="centerX" secondItem="ZTC-fM-6Bp" secondAttribute="centerX" id="Wdz-pG-zgf"/>
+                                    <constraint firstItem="7Hl-Ch-yUn" firstAttribute="top" secondItem="ZTC-fM-6Bp" secondAttribute="top" constant="38" id="mC7-q1-LsY"/>
+                                    <constraint firstItem="hza-Gf-u5N" firstAttribute="leading" secondItem="ZTC-fM-6Bp" secondAttribute="leading" constant="60" id="r5Y-EE-jCN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -165,13 +202,23 @@ Tents can't be placed orthogonal or diagonal to other tents</string>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="xIC-9c-DJu" secondAttribute="bottom" constant="50" id="7x8-R1-Izc"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="Vps-De-8Dx" secondAttribute="bottom" constant="50" id="8Rr-eh-eU8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xIC-9c-DJu" secondAttribute="leading" id="Gb0-Oe-CCx"/>
+                            <constraint firstItem="ZTC-fM-6Bp" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="Hj4-yE-78b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yfe-Bh-1MP" secondAttribute="trailing" constant="161" id="KHw-jW-CMw"/>
+                            <constraint firstItem="ZTC-fM-6Bp" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="PBp-tl-XIe"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="yfe-Bh-1MP" secondAttribute="bottom" constant="80" id="SRZ-7Z-2T5"/>
                             <constraint firstItem="ocA-I6-nnb" firstAttribute="leading" secondItem="B2G-eu-79F" secondAttribute="trailing" constant="29" id="jQQ-wg-zg4"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="B2G-eu-79F" secondAttribute="bottom" constant="130" id="zTF-Oe-uDl"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="ocA-I6-nnb" secondAttribute="bottom" constant="130" id="zbO-ZN-eBw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clearErrorsButton" destination="yfe-Bh-1MP" id="GPD-6E-2pr"/>
+                        <outlet property="tentNumberLabel" destination="ocA-I6-nnb" id="QgK-Os-PRD"/>
+                        <outlet property="timerLabel" destination="Vps-De-8Dx" id="81f-Lr-kAS"/>
+                        <outlet property="undoButton" destination="fS8-73-BDh" id="uKj-7K-6tn"/>
+                        <outlet property="winView" destination="ZTC-fM-6Bp" id="RbB-11-NOh"/>
+                        <outlet property="yourTimeLabel" destination="FvY-2h-Qhr" id="Jy7-z7-PJW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

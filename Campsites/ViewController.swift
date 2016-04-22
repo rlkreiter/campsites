@@ -34,6 +34,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "startSegue") {
+            let gvc = segue.destinationViewController as! GameViewController;
+            gvc.gridSize = (size+2)*5 + 1
+            gvc.difficulty = difficultyData[difficulty]
+        }
+    }
+    
     // Number of columns
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
