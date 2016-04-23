@@ -82,8 +82,6 @@ class GameViewController: UIViewController {
 
     func startTimer(){
         if(playingGame){
-            //let time = Int(CFAbsoluteTimeGetCurrent() - startTime)
-            //timerLabel.text = "\(time)"
             let wait = SKAction.waitForDuration(1)
             let run = SKAction.runBlock {
                 self.playTime += 1
@@ -201,6 +199,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Removes incorrect icons from board
     func clearErrors(sender:UIButton!)
     {
         for row in 0..<gridSize-1 {
@@ -215,9 +214,9 @@ class GameViewController: UIViewController {
                 }
             }
         }
-        print("Clear Errors tapped")
     }
     
+    // Undoes last move made
     func undo(sender:UIButton!)
     {
         if let res = level.undoMove() {
@@ -251,10 +250,12 @@ class GameViewController: UIViewController {
         }
     }
     
+    // Provided
     override func shouldAutorotate() -> Bool {
         return true
     }
 
+    // Provided
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             return .AllButUpsideDown
@@ -263,6 +264,7 @@ class GameViewController: UIViewController {
         }
     }
 
+    // Provided
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

@@ -29,11 +29,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         difficultyPicker.delegate = self
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "startSegue") {
             let gvc = segue.destinationViewController as! GameViewController;

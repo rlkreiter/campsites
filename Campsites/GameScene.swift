@@ -148,9 +148,4 @@ class GameScene: SKScene {
         }
         return nil
     }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
-        //viewController.changeTime()
-    }
 }
