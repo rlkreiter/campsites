@@ -16,8 +16,8 @@
 		8095789E1CC8744A00290E20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095789D1CC8744A00290E20 /* ViewController.swift */; };
 		809578A01CC9AA5500290E20 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095789F1CC9AA5500290E20 /* Level.swift */; };
 		809578A21CC9AD8C00290E20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809578A11CC9AD8C00290E20 /* Extensions.swift */; };
-		809578A61CC9B11800290E20 /* Challenging.json in Resources */ = {isa = PBXBuildFile; fileRef = 809578A41CC9B11800290E20 /* Challenging.json */; };
-		809578A71CC9B11800290E20 /* Easy.json in Resources */ = {isa = PBXBuildFile; fileRef = 809578A51CC9B11800290E20 /* Easy.json */; };
+		809578AB1CCAF86400290E20 /* Challenging.json in Resources */ = {isa = PBXBuildFile; fileRef = 809578A91CCAF86400290E20 /* Challenging.json */; };
+		809578AC1CCAF86400290E20 /* Easy.json in Resources */ = {isa = PBXBuildFile; fileRef = 809578AA1CCAF86400290E20 /* Easy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		8095789D1CC8744A00290E20 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8095789F1CC9AA5500290E20 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		809578A11CC9AD8C00290E20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		809578A41CC9B11800290E20 /* Challenging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Challenging.json; sourceTree = "<group>"; };
-		809578A51CC9B11800290E20 /* Easy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Easy.json; sourceTree = "<group>"; };
+		809578A91CCAF86400290E20 /* Challenging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Challenging.json; sourceTree = "<group>"; };
+		809578AA1CCAF86400290E20 /* Easy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Easy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,17 +75,17 @@
 				8095788F1CC866E800290E20 /* Main.storyboard */,
 				809578921CC866E800290E20 /* Assets.xcassets */,
 				809578941CC866E800290E20 /* LaunchScreen.storyboard */,
-				809578A31CC9B11800290E20 /* Levels */,
+				809578A81CCAF86400290E20 /* Levels */,
 				809578971CC866E800290E20 /* Info.plist */,
 			);
 			path = Campsites;
 			sourceTree = "<group>";
 		};
-		809578A31CC9B11800290E20 /* Levels */ = {
+		809578A81CCAF86400290E20 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				809578A41CC9B11800290E20 /* Challenging.json */,
-				809578A51CC9B11800290E20 /* Easy.json */,
+				809578A91CCAF86400290E20 /* Challenging.json */,
+				809578AA1CCAF86400290E20 /* Easy.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -149,9 +149,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809578A61CC9B11800290E20 /* Challenging.json in Resources */,
+				809578AB1CCAF86400290E20 /* Challenging.json in Resources */,
 				809578961CC866E800290E20 /* LaunchScreen.storyboard in Resources */,
-				809578A71CC9B11800290E20 /* Easy.json in Resources */,
+				809578AC1CCAF86400290E20 /* Easy.json in Resources */,
 				809578931CC866E800290E20 /* Assets.xcassets in Resources */,
 				809578911CC866E800290E20 /* Main.storyboard in Resources */,
 			);

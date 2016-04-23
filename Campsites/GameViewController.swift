@@ -25,6 +25,7 @@ class GameViewController: UIViewController {
     var difficulty: String!
     var startTime: CFAbsoluteTime!
     var playingGame = true
+    var penaltyTime = 0
     
     // Tile colors
     let green = SKColor(red: 211.0/255.0, green: 234.0/255.0, blue: 192.0/255.0, alpha: 1.0)
@@ -39,7 +40,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        winView.hidden = false
+        
         // Set up navigation bar for the view
         let button = UIBarButtonItem(title: "Restart", style: .Plain, target: self, action: #selector(GameViewController.restart))
         self.navigationItem.rightBarButtonItem = button
@@ -145,10 +146,11 @@ class GameViewController: UIViewController {
         
         // Check solution only if all tents placed
         if(level.tentsRemaining == 0){
+            let time = Int(timerLabel.text!)
             if(level.solved()){
                 // Winner popup
                 playingGame = false
-                yourTimeLabel.text = timerLabel.text! + " seconds"
+                yourTimeLabel.text = "\(time! + penaltyTime) seconds"
                 winView.hidden = false
                 let wait = SKAction.waitForDuration(5)
                 let run = SKAction.runBlock {
@@ -194,10 +196,13 @@ class GameViewController: UIViewController {
     {
         for row in 0..<gridSize-1 {
             for col in 0..<gridSize-1 {
-                if level.grid[row][col] != level.fullGrid[row][col] {
+                if(level.grid[row][col] != level.fullGrid[row][col] &&
+                   level.grid[row][col] != 0) {
                     level.removeObject(col, row: row)
                     scene.removeGamePiece("(\(row+1),\(col+1))")
                     updateHeaders(row, col: col)
+                    penaltyTime += 30
+                    tentNumberLabel.text = "\(level.tentsRemaining)"
                 }
             }
         }
@@ -226,6 +231,7 @@ class GameViewController: UIViewController {
                 undoButton.hidden = true
             }
             updateHeaders(res.row, col: res.col)
+            tentNumberLabel.text = "\(level.tentsRemaining)"
         }
         else {
             undoButton.hidden = true
