@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
     var difficulty: String!
     var startTime: CFAbsoluteTime!
     var playingGame = true
-    var penaltyTime = 0
+    var playTime = 0
     
     // Tile colors
     let green = SKColor(red: 211.0/255.0, green: 234.0/255.0, blue: 192.0/255.0, alpha: 1.0)
@@ -75,27 +75,37 @@ class GameViewController: UIViewController {
         
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
+        startTimer()
         
         skView.presentScene(scene)
     }
 
-    func changeTime(){
+    func startTimer(){
         if(playingGame){
-            let time = Int(CFAbsoluteTimeGetCurrent() - startTime)
-            timerLabel.text = "\(time)"
+            //let time = Int(CFAbsoluteTimeGetCurrent() - startTime)
+            //timerLabel.text = "\(time)"
+            let wait = SKAction.waitForDuration(1)
+            let run = SKAction.runBlock {
+                self.playTime += 1
+                self.timerLabel.text = "\(self.playTime)"
+            }
+            scene.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
         }
     }
     
     func restart() {
-        for row in 1...gridSize-1 {
-            for col in 1...gridSize-1 {
-                if(level.grid[row-1][col-1] != 1){
-                    scene.removeGamePiece("(\(row),\(col))")
+        for row in 0..<gridSize-1 {
+            for col in 0..<gridSize-1 {
+                if(level.grid[row][col] != 1){
+                    level.removeObject(col, row: row)
+                    scene.removeGamePiece("(\(row+1),\(col+1))")
                 }
                 scene.changeTileColor("(\(gridSize),\(col))", color: grey)
             }
             scene.changeTileColor("(\(row),\(gridSize))", color: grey)
         }
+        playTime = 0
+        tentNumberLabel.text = "\(level.tentsRemaining)"
     }
     
     func handleTouch(tile: String){
@@ -146,11 +156,10 @@ class GameViewController: UIViewController {
         
         // Check solution only if all tents placed
         if(level.tentsRemaining == 0){
-            let time = Int(timerLabel.text!)
             if(level.solved()){
                 // Winner popup
                 playingGame = false
-                yourTimeLabel.text = "\(time! + penaltyTime) seconds"
+                yourTimeLabel.text = timerLabel.text! + " seconds"
                 winView.hidden = false
                 let wait = SKAction.waitForDuration(5)
                 let run = SKAction.runBlock {
@@ -201,7 +210,7 @@ class GameViewController: UIViewController {
                     level.removeObject(col, row: row)
                     scene.removeGamePiece("(\(row+1),\(col+1))")
                     updateHeaders(row, col: col)
-                    penaltyTime += 30
+                    playTime += 30
                     tentNumberLabel.text = "\(level.tentsRemaining)"
                 }
             }
@@ -252,11 +261,6 @@ class GameViewController: UIViewController {
         } else {
             return .All
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
 
     override func prefersStatusBarHidden() -> Bool {

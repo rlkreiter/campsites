@@ -7,10 +7,12 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "tent-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tent-2.png",
       "scale" : "3x"
     }
   ],

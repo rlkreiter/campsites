@@ -35,7 +35,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" identifier="startSegue" id="wLC-cd-g5v"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="startSegue" id="06H-F5-iL6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Grid Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sog-cL-DsV">
@@ -76,10 +76,10 @@ Tents can't be placed orthogonal or diagonal to other tents</string>
                         <constraints>
                             <constraint firstItem="Eyi-fs-Cb3" firstAttribute="leading" secondItem="ud1-ba-p1o" secondAttribute="leadingMargin" constant="100" id="5WS-OH-RA8"/>
                             <constraint firstItem="wcK-Xd-Vfr" firstAttribute="leading" secondItem="ecc-7W-WZx" secondAttribute="trailing" constant="50" id="IYk-JM-aEj"/>
-                            <constraint firstItem="srK-er-1OQ" firstAttribute="top" secondItem="jje-kf-HJq" secondAttribute="bottom" constant="307" id="Lyt-AE-zy6"/>
+                            <constraint firstItem="srK-er-1OQ" firstAttribute="top" secondItem="jje-kf-HJq" secondAttribute="bottom" constant="357" id="Lyt-AE-zy6"/>
                             <constraint firstItem="cGk-C7-aZs" firstAttribute="top" secondItem="lVG-xg-dP4" secondAttribute="bottom" constant="130" id="a22-l0-Us4"/>
-                            <constraint firstItem="srK-er-1OQ" firstAttribute="top" secondItem="ecc-7W-WZx" secondAttribute="bottom" constant="249" id="eXx-dW-Q5x"/>
-                            <constraint firstItem="srK-er-1OQ" firstAttribute="top" secondItem="sog-cL-DsV" secondAttribute="bottom" constant="387" id="fpW-D1-IzL"/>
+                            <constraint firstItem="srK-er-1OQ" firstAttribute="top" secondItem="ecc-7W-WZx" secondAttribute="bottom" constant="263" id="eXx-dW-Q5x"/>
+                            <constraint firstItem="srK-er-1OQ" firstAttribute="top" secondItem="sog-cL-DsV" secondAttribute="bottom" constant="448" id="fpW-D1-IzL"/>
                             <constraint firstItem="jje-kf-HJq" firstAttribute="leading" secondItem="sog-cL-DsV" secondAttribute="trailing" constant="50" id="gMC-yU-cQX"/>
                             <constraint firstItem="srK-er-1OQ" firstAttribute="top" secondItem="wcK-Xd-Vfr" secondAttribute="bottom" constant="169" id="hJ4-sf-nFc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cGk-C7-aZs" secondAttribute="trailing" constant="40" id="liK-Zx-ENj"/>
@@ -100,7 +100,7 @@ Tents can't be placed orthogonal or diagonal to other tents</string>
             </objects>
             <point key="canvasLocation" x="800" y="241"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Campsites-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Campsites" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,6 +211,7 @@ Tents can't be placed orthogonal or diagonal to other tents</string>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="ocA-I6-nnb" secondAttribute="bottom" constant="130" id="zbO-ZN-eBw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Campsites" id="phF-Lc-zBd"/>
                     <connections>
                         <outlet property="clearErrorsButton" destination="yfe-Bh-1MP" id="GPD-6E-2pr"/>
                         <outlet property="tentNumberLabel" destination="ocA-I6-nnb" id="QgK-Os-PRD"/>
@@ -222,7 +223,7 @@ Tents can't be placed orthogonal or diagonal to other tents</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="241"/>
+            <point key="canvasLocation" x="1500" y="241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n3M-5h-R8v">
